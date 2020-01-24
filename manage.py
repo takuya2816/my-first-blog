@@ -1,3 +1,5 @@
+# manage.pyはコマンド実行の起点となる
+
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os

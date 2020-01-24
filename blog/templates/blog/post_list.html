@@ -1,22 +1,21 @@
+<!--HTMLのテンプレート作成-->
+
 <html>
     <head>
         <title>Django Girls blog</title>
     </head>
     <body>
         <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
+            <h1><a href="/">Django Girls Blog</a></h1>  <!--リンク貼り付け-->
         </div>
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. こんにちは！ よろしくお願いします！ </p>
-        </div>
+        {% for post in posts %}  <!--htmlの動的処理-->
+            <div>
+                <p>published: {{post.published_date}}</p>  <!--pubulishした時間-->
+                <h2><a href="">{{post.title}}</a></h2>  <!--title-->
+                <p>{{post.text|linebreaksbr}}</p>  <!--内容、|linebreaksbrはテキスト中の改行を段落に変換-->
+            </div>
+        {% endfor %}  <!--postの数だけ繰り返し-->
 
-        <div>
-            <p>公開日: 2014/06/14, 12:14</p>
-            <h2><a href="">2番目の投稿</a></h2>
-            <p> こんにちは！ よろしくお願いします！ </p>
-        </div>
     </body>
 </html>

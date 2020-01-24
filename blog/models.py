@@ -1,3 +1,5 @@
+# DBの設計書
+
 # Create your models here.
 # ブログポストモデルの定義、
 from django.conf import settings

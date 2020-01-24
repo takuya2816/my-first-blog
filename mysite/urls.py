@@ -1,3 +1,5 @@
+# URLのpathとviewを紐づけるファイル
+
 """mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -17,6 +19,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # adminで始めるURLをadmin.site.urlsへ移動
     path('', include('blog.urls')),  # blog.urlsをurlconfに任せる
 ]

@@ -1,3 +1,5 @@
+# setting.pyはプロジェクトの設定
+
 """
 Django settings for mysite project.
 
