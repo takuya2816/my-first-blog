@@ -1,21 +1,16 @@
 <!--HTMLのテンプレート作成-->
+{% extends 'blog/base.html' %}  <!--テンプレート拡張-->
 
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>  <!--リンク貼り付け-->
-        </div>
-
-        {% for post in posts %}  <!--htmlの動的処理-->
-            <div>
-                <p>published: {{post.published_date}}</p>  <!--pubulishした時間-->
-                <h2><a href="">{{post.title}}</a></h2>  <!--title-->
-                <p>{{post.text|linebreaksbr}}</p>  <!--内容、|linebreaksbrはテキスト中の改行を段落に変換-->
+{% block content %}  <!--baseのblockの間へ追加-->
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                <p>published: {{ post.published_date }}</p>  <!--投稿日-->
             </div>
-        {% endfor %}  <!--postの数だけ繰り返し-->
-
-    </body>
-</html>
+            <!--blog/urls.pyに書かれたname=post_detail のURLを待ち受ける-->
+            <!--DBの各レコードのprimary keyを取得、postのpk-->
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>  <!--タイトル-->
+            <p>{{ post.text|linebreaksbr }}</p>  <!--内容と改行-->
+        </div>
+    {% endfor %}
+{% endblock %}

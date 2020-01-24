@@ -9,6 +9,7 @@
 from django.shortcuts import render
 from .models import Post  #.は現在のディレクトリを示す
 from django.utils import timezone
+from django.shortcuts import render, get_object_or_404
 
 # requestを受け取りresponseを返す
 
@@ -18,3 +19,9 @@ def post_list(request):
     
     # requestを受けてrender関数でhtmlへクエリセットを組み合わせる
     return render(request, 'blog/post_list.html', {'posts': posts})  # {'名前':クエリセット}
+
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)  # pkにkeyが入っていない時PageNotFoundPageに飛ぶ
+    # post = Post.objects.get(pk=pk)
+    return render(request, 'blog/post_detail.html', {'post':post})
