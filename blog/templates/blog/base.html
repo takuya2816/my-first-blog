@@ -9,6 +9,10 @@
     </head>
     <body>
         <div class="page-header">
+            <!--管理者でログインした時にボタンが表示される-->
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>  <!--viewのpost_newを呼び出す、plusマークを表示-->
+            {% endif %}
             <h1><a href="/">Django Girls Blog</a></h1>
         </div>
         <div class="content container">
