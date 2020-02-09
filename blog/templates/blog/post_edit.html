@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}  <!--baseの拡張-->
 
-{% block content %}  <!--拡張に差し込む部分-->
+{% block content %}  <!--base.htmlに差し込む部分-->
     <h2>New post</h2>  <!--見出し-->
     <!--formタグで挟むとボタンなどをつくれる-->
     <form method="POST" class="post-form">{% csrf_token %} <!--csrfはformをセキュアにする-->
